@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculadora de ISR</title>
+    <link rel="stylesheet" href="/css/styles.css"> <!-- Enlace al archivo CSS -->
+</head>
+<body>
+    <!-- Header -->
+    <div class="header">
+        <img src="/images/logo.png" alt="Calculadora de ISR">
+        <button class="contact-btn">Contáctanos</button>
+    </div>
+
+    <div class="container-hero">
+        <!-- Hero Section -->
+        <div class="hero">
+            <div class="top-item">
+                <h1>Calcula <br>tu ISR con <br>nosotros</h1>
+                <img src="/images/dinero.png" alt="dineros">
+            </div>
+            <div class="container-black">
+            </div>
+        </div>
+       
+    </div>
+    <!-- Main Container -->
+    <div class="main-container">
+        <!-- Formulario de Cálculo de ISR -->
+        <div class="form-container">
+            <h2>Calculadora de ISR</h2>
+            <p>Esta calculadora de ISR te ayudará a dar un estimado sobre el total de impuestos que deberás pagar.</p>
+            <form action="/calcular" method="POST">
+                <label for="pais">País:</label>
+                <select name="pais" id="pais">
+                    <option value="1">México</option>
+                    <option value="2">Estados Unidos</option>
+                </select>
+
+                <label for="periodo">Periodo:</label>
+                <select name="periodo" id="periodo">
+                    <option value="1">Quincenal</option>
+                    <option value="2">Mensual</option>
+                    <option value="3">Anual</option>
+                </select>
+
+                <label for="sueldo">Sueldo:</label>
+                <input type="number" name="sueldo" id="sueldo" placeholder="Ingrese su sueldo">
+
+                <button type="submit">Calcular</button>
+            </form>
+            <!-- Resultados del Cálculo -->
+            <% if (typeof sueldoBruto !== 'undefined' && typeof isr !== 'undefined' && typeof sueldoNeto !== 'undefined') { %>
+                <div class="result-container">
+                    <p>El sueldo bruto es: <span><%= sueldoBruto %></span></p>
+                    <p>El ISR calculado es: <span><%= isr %></span></p>
+                    <p>El sueldo neto es: <span><%= sueldoNeto %></span></p>
+                </div>
+            <% } else if (typeof error !== 'undefined') { %>
+                <div class="result-container">
+                    <p><%= error %></p>
+                </div>
+            <% } %>
+        </div>
+
+        
+    </div>
+
+    
+    <div class="footer">
+        <!-- Sección de Preguntas Frecuentes -->
+        <img src="/images/fondo-v2.png" alt="imagen">
+        <div class="inf-footer">
+            <div class="faq-section">
+                <h2><strong>¿Qué es el ISR?</strong></h2>
+                <p>El ISR o Impuesto Sobre la Renta, es un tributo que grava los
+                    ingresos de las personas físicas y personas morales en México. 
+                    Es decir, un pago por las ganancias obtenidas durante lo que se
+                    conoce como ejercicio fiscal. 
+                    
+                    El cálculo del ISR se basa en una serie de tablas y tarifas
+                    progresivas establecidas por la autoridad fiscal, que determinan
+                    la cantidad a pagar de impuestos de acuerdo con el nivel d
+                    e ingresos del contribuyente.</p>
+
+                <h2><strong>¿Para que sirve el ISR?</strong></h2>
+                <p>Los ingresos generados a través del ISR se utilizan para
+                    financiar una variedad de servicios públicos esenciales.
+                    Esto incluye educación, salud, seguridad, infraestructura,
+                    entre otros. Sin estos ingresos fiscales, el gobierno tendría
+                    dificultades para proveer estos servicios a la población.
+                    </p>
+
+                <h2><strong>¿Cuando se debe de pagar el ISR?    </strong></h2>
+                <p>El impuesto en comento es anual, pero pueden realizarse pagos
+                    provisionales de forma mensual, a más tardar el día 17 del mes
+                    siguiente al período al que corresponda el pago al SAT y, en
+                    casos excepcionales, puede ser definitivo, bimestral, trimestral
+                    o semestral.
+                    </p>
+            </div>
+            <!-- Footer -->
+            <div class="faq-footer">
+                <h2>¿Tienes dudas? </h2>
+                <button class="contact-btn">Contáctanos</button>
+            </div>
+        </div>
+        
+            
+    </div>
+</body>
+</html>
